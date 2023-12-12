@@ -1,0 +1,305 @@
+/*
+     DESKTOP
+*/
+
+main {
+    min-height: 82vh;
+    height: auto;
+    background-color: #FFFFFF;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 5vh;
+}
+
+.hidden {
+    display: none;
+}
+
+.buttonsSection {
+    height: 10vh;
+    width: 80%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.buttonSectionChanged {
+    min-height: 9vw;
+    height: auto;
+    width: 91.7%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.mainButton {
+    width: 25vw;
+    height: 5vh;
+    font-size: 2vh;
+}
+
+#inputDiv {
+    width: 25vw;
+    height: 8vh;
+    font-size: 3vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#inputDiv span {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+}
+
+#inputDiv input {
+    height: 4vh;
+    width: 75%;
+    font-size: 2vh;
+}
+
+#inputDiv button {
+    height: 4vh;
+    width: 20%;
+    font-size: 2vh;
+}
+
+#cardsSection {
+    display: flex;
+    width: 70vw;
+    margin-block: 5vh;
+    height: auto;
+    flex-wrap: wrap;
+}
+
+.cards{
+    width: 17.5vw;
+    border: 1px solid black;
+    background-color: whitesmoke;
+    text-align: center;
+}
+
+.cards table {
+    width: 100%;
+    height: 17.5vw;
+}
+
+.cards table td {
+    width: 20%;
+    height: 20%;
+    background-color: white;
+}
+
+.playerNameTags {
+    border-bottom: 2px solid black;
+}
+
+.raffleNumberP{
+    color: blue;
+    font-size: 20px;
+}
+
+.raffleNumberDiv{
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 3vw;
+    height: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#winnerP {
+    font-size: 25px;
+}
+
+#restartButton {
+    width: 30%;
+    height: 4vh;
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+#winnerDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#errorDiv {
+    position: absolute;
+    background-color: white;
+    border: 2px solid red;
+    left: 50%;
+    top: 28%;
+    width: 15vw;
+    margin-left: -7.5vw;
+    height: 10vh;
+    text-align: center;
+}
+
+#errorP {
+    position: absolute;
+    width: 15vw;
+    margin-left: -7.5vw;
+    left: 50%;
+    top: 10%;
+    font-size: 25px;
+}
+
+
+
+/*
+     MOBILE
+*/
+@media screen and (max-width: 800px) {
+
+    main {
+        min-height: 82vh;
+        height: auto;
+        background-color: #FFFFFF;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 5vh;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .buttonsSection {
+        height: 10vh;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .buttonSectionChanged {
+        min-height: 10vh;
+        height: auto;
+        width: 91.7%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    
+    .mainButton {
+        width: 45vw;
+        height: 5vh;
+        font-size: 2vh;
+    }
+    
+    #inputDiv {
+        width: 45vw;
+        height: 5vh;
+        font-size: 1.8vh;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #inputDiv span {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #inputDiv input {
+        height: 3vh;
+        width: 75%;
+    }
+    
+    #inputDiv button {
+        height: 3vh;
+        width: 20%;
+    }
+    
+    #cardsSection {
+        display: flex;
+        width: 90vw;
+        margin-block: 5vh;
+        height: auto;
+        flex-wrap: wrap;
+    }
+    
+    .cards{
+        width: 45vw;
+        border: 1px solid black;
+        background-color: whitesmoke;
+        text-align: center;
+    }
+    
+    .cards table {
+        width: 100%;
+        height: 45vw;
+    }
+    
+    .cards table td {
+        width: 20%;
+        height: 20%;
+        background-color: white;
+    }
+    
+    .playerNameTags {
+        border-bottom: 2px solid black;
+    }
+    
+    .raffleNumberP{
+        color: blue;
+        font-size: 15px;
+    }
+    
+    .raffleNumberDiv{
+        border: 1px solid black;
+        border-radius: 100%;
+        width: 10vw;
+        height: 10vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #winnerP {
+        font-size: 25px;
+    }
+
+    #restartButton {
+        width: 50%;
+        height: 4vh;
+        font-size: 15px;
+        margin-top: 8px;
+    }
+
+    #winnerDiv {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #errorDiv {
+        position: absolute;
+        background-color: white;
+        border: 2px solid red;
+        left: 50%;
+        top: 28%;
+        width: 80vw;
+        margin-left: -40vw;
+        height: 18vh;
+        text-align: center;
+    }
+    
+    #errorP {
+        position: absolute;
+        width: 60vw;
+        margin-left: -30vw;
+        left: 50%;
+        top: 10%;
+        font-size: 25px;
+    }
+
+}

@@ -1,0 +1,132 @@
+
+/*
+        DESKTOP
+*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scrollbar-gutter: stable both-edges;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: black;
+    border: 1px solid black;
+}
+
+.flexRow{
+    display: flex;
+    flex-direction: row;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.headerText {
+    font-size: 4.5vh;
+}
+
+#headerIcon {
+    height: 7vh;
+    margin-right: 20px;
+}
+
+header {
+    height: 13vh;
+    border-bottom: 2px solid black;
+    align-items: center;
+    justify-content: center;
+    background-color: #E1E1E1;
+}
+
+#headerDiv {
+    width: 50%;
+    height: 9vh;
+    border-inline: 2px solid black;
+    align-items: center;
+    justify-content: center;
+}
+
+#footerText {
+    font-size: 2.3vh;
+}
+
+footer {
+    height: 4.8vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #999999;
+    border-top: 2px solid black;
+    color: #292929;
+}
+
+/*
+        MOBILE
+*/
+@media screen and (max-width: 800px) {
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        scrollbar-gutter: stable both-edges;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    body {
+        background-color: #FFFFFF;
+        border: 1px solid black;
+    }
+    
+    .flexRow{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .flexColumn {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .headerText {
+        font-size: 3.5vh;
+    }
+    
+    #headerIcon {
+        height: 7.5vh;
+        margin-right: 0;
+    }
+    
+    header {
+        height: 13vh;
+        border-bottom: 2px solid black;
+        align-items: center;
+        justify-content: center;
+        background-color: #E1E1E1;
+    }
+    
+    #headerDiv {
+        width: 90%;
+        height: 9vh;
+        border-inline: 2px solid black;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    #footerText {
+        font-size: 2.3vh;
+    }
+    
+    footer {
+        height: 5vh;
+        align-items: center;
+        justify-content: center;
+        background-color: #999999;
+        border-top: 2px solid black;
+        color: #292929;
+    }
+
+}

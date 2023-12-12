@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
+    <title>BINGO</title>
+</head>
+<body>
+    <header class="flexRow">
+        <div class="flexRow" id="headerDiv">
+            <img src="headerIcon.png" alt="Header Icon" id="headerIcon">
+            <h1 class="headerText">BINGO ONLINE</h1>
+        </div>
+    </header>
+    <main class="flexColumn">
+        <section id="buttonsSection" class="flexRow buttonsSection">
+            <button enabled id="addCardButton" onclick="askName()" class="mainButton">ADICIONAR CARTELA</button>
+            <div class="hidden" id="inputDiv">
+                <label for="nameInput">Digite o nome do jogador:</label>
+                <span class="flexRow">
+                    <input type="text" id="nameInput" placeholder="Fulano de Tal">
+                    <button onclick="createPlayer()">OK</button>
+                </span>
+            </div>
+            <button id="startRaffleButton" onclick="startRaffle()" class="mainButton" disabled>INICIAR SORTEIO</button>
+        </section>
+        <section id="cardsSection">
+
+        </section>
+    </main>
+    <footer class="flexRow">
+        <h3 id="footerText">DEVELOPED BY LUCAS BONATO SOARES</h3>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
