@@ -1,9 +1,9 @@
 # BingoResponsivo
-Bingo Responsivo é um projeto pessoal voltado ao meu aprendizado em JavaScript e CSS responsivo.
+Bingo Responsivo é um projeto pessoal voltado ao meu aprendizado em JavaScript e CSS responsivo.<br>
 Busco aqui criar uma aplicação web de um bingo que funcione em qualquer dispositivo.
 
-O bingo foi desenvolvido pela perspectiva do Mobile-First, tendo sua versão desktop adaptada posteriormente.
-Seu CSS possui essa distinção por meio de uma palavra-chave "@media", que separa a estilização usada em dispositivos desktop e dispositivos mobile.
+O bingo foi desenvolvido pela perspectiva do Mobile-First, tendo sua versão desktop adaptada posteriormente.<br>
+Seu CSS possui essa distinção por meio de uma palavra-chave "@media", que separa a estilização usada em dispositivos desktop e dispositivos mobile.<br>
 O JavaScript foi feito de forma a poder rodar diversos ciclos de jogo, alterando constantemente o documento HTML em suas funções.
 
 ### [ACESSAR O BINGO](https://lucasbs4546.github.io/BingoResponsivo/)
