@@ -9,7 +9,7 @@ Seu CSS possui essa distinção por meio de uma palavra-chave *@media*, que sepa
 
 O JavaScript foi feito de forma a poder rodar diversos ciclos de jogo, alterando constantemente o documento HTML em suas funções.
 
-### [ACESSAR O BINGO](https://lucasbs4546.github.io/BingoResponsivo/)
+## [ACESSAR O BINGO](https://lucasbs4546.github.io/BingoResponsivo/)
 
 <hr>
 
