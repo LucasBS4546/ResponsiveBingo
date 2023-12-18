@@ -6,6 +6,8 @@ O bingo foi desenvolvido pela perspectiva do Mobile-First, tendo sua versão des
 Seu CSS possui essa distinção por meio de uma palavra-chave "@media", que separa a estilização usada em dispositivos desktop e dispositivos mobile.
 O JavaScript foi feito de forma a poder rodar diversos ciclos de jogo, alterando constantemente o documento HTML em suas funções.
 
+### [ACESSAR O BINGO](https://lucasbs4546.github.io/BingoResponsivo/)
+
 ## Guia do repositório
  * index.html - O arquivo que contem a estrutura da página em linguagem de marcação (HTML 5).
  * style.css - O arquivo que contem a estilização do cabeçalho e rodapé (header e footer).
@@ -30,7 +32,3 @@ Finalização do jogo:
 ## Objetivos
 Metas que ainda não foram implementadas, mas pretendo desenvolver:
 * Capacidade de apagar cartelas criadas
-
-
-
-## [ACESSAR O BINGO](https://lucasbs4546.github.io/BingoResponsivo/)
