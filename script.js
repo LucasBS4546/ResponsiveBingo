@@ -10,10 +10,10 @@ var generatedNumbers = [];
 var raffleNumbers = [];
 var raffleInterval;
 var winnerNames = [];
+var isWinner;
 
 startRaffleButton.disabled = true;
 
-//DEIXAR O USUARIO ESCOLHER ENTRE SORTEAMENTO MANUAL E SORTEAMENTO AUTOMATICO
 
 function askName(){
 
@@ -245,7 +245,67 @@ function drawCard(cardArray, name){
 
 }
 
-function startRaffle(){
+function chooseRaffle(){
+
+    buttonsSection.removeChild(startRaffleButton);
+    addCardButton.disabled = true;
+
+    var manualRaffleButton = document.createElement("button");
+    manualRaffleButton.id = "manualRaffleButton";
+    manualRaffleButton.innerHTML = "Sorteio manual";
+    manualRaffleButton.classList.add("mainButton");
+    manualRaffleButton.onclick = function() {prepareManualRaffle()};
+
+    var autoRaffleButton = document.createElement("button");
+    autoRaffleButton.id = "autoRaffleButton";
+    autoRaffleButton.innerHTML = "Sorteio automático";
+    autoRaffleButton.classList.add("mainButton");
+    autoRaffleButton.onclick = function() {startAutoRaffle()};
+
+    var raffleOptionSpan = document.createElement("span");
+    raffleOptionSpan.id = "raffleOptionsSpan";
+    raffleOptionSpan.appendChild(manualRaffleButton);
+    raffleOptionSpan.appendChild(autoRaffleButton);
+
+    buttonsSection.appendChild(raffleOptionSpan);
+
+}
+
+function prepareManualRaffle(){
+
+    prepareRaffleArea();
+
+    var manualRaffleButton = document.createElement("button");
+    manualRaffleButton.id = "manualRaffleButton";
+    manualRaffleButton.classList.add("manualRaffleButton");
+    manualRaffleButton.innerHTML = "Clique para sortear";
+    manualRaffleButton.onclick = function() {pickManualNumber()};
+
+    buttonsSection.appendChild(manualRaffleButton);   
+    
+}
+
+function pickManualNumber(){
+    
+    if(raffleNumbers.length < 73 && !isWinner){
+        
+        var raffleNumber = generateRandomNumber(1, 75, raffleNumbers);
+        drawRaffleNumber(raffleNumber);
+        checkCards(raffleNumber);
+        checkForWinner();
+
+        document.getElementById("manualRaffleButton").disabled = true;
+        setTimeout(()=>{
+
+            document.getElementById("manualRaffleButton").disabled = false;
+
+        }, 500);
+             
+    }
+
+}
+
+function startAutoRaffle(){
 
     prepareRaffleArea();
 
@@ -321,7 +381,7 @@ function checkForWinner(){
 
     players.forEach((player)=>{
 
-        var isWinner = true;
+        isWinner = true;
         
         for(i = 0; i < 5; i++){
 

@@ -137,20 +137,34 @@ main {
     top: 28%;
     width: 15vw;
     margin-left: -7.5vw;
-    height: 10vh;
+    height: fit-content;
     text-align: center;
 }
 
 #errorP {
-    position: absolute;
-    width: 15vw;
-    margin-left: -7.5vw;
-    left: 50%;
-    top: 10%;
     font-size: 25px;
 }
 
+#raffleOptionsSpan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+}
 
+.manualRaffleButton {
+    position: absolute;
+    top: 13vh;
+    left: 50vw;
+    margin-left: -125px;
+    width: 250px;
+    height: 35px;
+    border: 1px solid;
+    text-align: center;
+    background-color: lightgreen;
+}
 
 /*
      MOBILE
@@ -289,16 +303,11 @@ main {
         top: 28%;
         width: 80vw;
         margin-left: -40vw;
-        height: 18vh;
+        height: fit-content;
         text-align: center;
     }
     
     #errorP {
-        position: absolute;
-        width: 60vw;
-        margin-left: -30vw;
-        left: 50%;
-        top: 10%;
         font-size: 25px;
     }
 

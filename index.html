@@ -14,7 +14,7 @@
             <h1 class="headerText">BINGO ONLINE</h1>
         </div>
     </header>
-    <main class="flexColumn">
+    <main class="flexColumn" id="main">
         <section id="buttonsSection" class="flexRow buttonsSection">
             <button enabled id="addCardButton" onclick="askName()" class="mainButton">ADICIONAR CARTELA</button>
             <div class="hidden" id="inputDiv">
@@ -24,7 +24,7 @@
                     <button onclick="createPlayer()">OK</button>
                 </span>
             </div>
-            <button id="startRaffleButton" onclick="startRaffle()" class="mainButton" disabled>INICIAR SORTEIO</button>
+            <button id="startRaffleButton" onclick="chooseRaffle()" class="mainButton" disabled>INICIAR SORTEIO</button>
         </section>
         <section id="cardsSection">
 
