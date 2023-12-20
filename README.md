@@ -28,6 +28,7 @@ O JavaScript foi feito de forma a poder rodar diversos ciclos de jogo, alterando
   </summary>
   Início do jogo:
    * Criação de cartelas - O usuário pode inserir o nome de um jogador do bingo e sua cartela respectiva será criada. O usuário pode criar quantas cartelas quiser.
+   * Apagar cartelas - O usuário pode também apagar as cartelas que ele queira.
   
   O usuário pode então escolher se deseja realizar um sorteio manual ou automático:
    * Sorteio manual - O usuário aperta um botão para sortear um número.
@@ -38,12 +39,4 @@ O JavaScript foi feito de forma a poder rodar diversos ciclos de jogo, alterando
      * Caso mais de um jogador faça bingo ao mesmo tempo, todos os jogadores vencedores serão considerados vencedores.
    * O programa anunciará o vencedor / os vencedores.
    * O jogador pode apertar um botão para jogar novamente 
-</details>
-
-<details>
-  <summary>
-    <h2>Objetivos</h2>
-  </summary>
-  Metas que ainda não foram implementadas, mas pretendo desenvolver:
-* Capacidade de apagar cartelas criadas
 </details>
