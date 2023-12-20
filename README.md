@@ -26,6 +26,7 @@ O JavaScript foi feito de forma a poder rodar diversos ciclos de jogo, alterando
   <summary>
     <h2>Funcionalidades</h2>
   </summary>
+  
   Início do jogo:
    * Criação de cartelas - O usuário pode inserir o nome de um jogador do bingo e sua cartela respectiva será criada. O usuário pode criar quantas cartelas quiser.
    * Apagar cartelas - O usuário pode também apagar as cartelas que ele queira.
