@@ -4,7 +4,6 @@ const inputDiv = document.getElementById("inputDiv");
 const addCardButton = document.getElementById("addCardButton");
 const startRaffleButton = document.getElementById("startRaffleButton");
 
-var cardCounter = 0;
 var players = [];
 var generatedNumbers = [];
 var raffleNumbers = [];
@@ -53,7 +52,7 @@ function createPlayer(){
 
         });
 
-        createCard(playerName);
+        createCard(playerName, players.length);
         generatedNumbers = [];
         startRaffleButton.disabled = false;
 
@@ -107,16 +106,16 @@ function displayErrorMessage(errorText){
 
 }
 
-function createCard(name){
+function createCard(name, pLength){
 
     var card = document.createElement("div");
-    card.id = "card" + cardCounter;
+    card.id = "card" + name;
     card.classList.add("cards");
 
     var playerNameTag = document.createElement("h2");
-    playerNameTag.id = "playerNameTag" + cardCounter;
+    playerNameTag.id = "playerNameTag" + name;
     playerNameTag.classList.add("playerNameTags");
-    playerNameTag.innerHTML = players[cardCounter].playerName;
+    playerNameTag.innerHTML = name;
     card.appendChild(playerNameTag);
 
     var cardArray = createCardArray();
@@ -124,9 +123,20 @@ function createCard(name){
 
     card.appendChild(drawCard(cardArray, name));
     cardsSection.appendChild(card);
+
+    var deleteIcon = document.createElement("img");
+    deleteIcon.id = "deleteIcon" + name;
+    deleteIcon.classList.add("deleteIcon");
+    deleteIcon.src = "deleteIcon.webp";
+
+    var deleteButton = document.createElement("button");
+    deleteButton.id = "deleteButton" + name;
+    deleteButton.classList.add("deleteButton");
+    deleteButton.onclick = function() {deleteCard(deleteButton.id)};
+    deleteButton.appendChild(deleteIcon);
+    card.appendChild(deleteButton);    
     
-    players[cardCounter].card = cardArray;
-    cardCounter++;
+    players[pLength - 1].card = cardArray;
 
 }
 
@@ -212,7 +222,8 @@ function generateRandomNumber(min, max, numArray){
 function drawCard(cardArray, name){
 
     var table = document.createElement("table");
-    table.id = "table" + cardCounter;
+    table.id = "table" + name;
+    table.classList.add("cardTable");
 
     for(i = 0; i < 5; i++){
 
@@ -245,10 +256,32 @@ function drawCard(cardArray, name){
 
 }
 
+function deleteCard(btnId){
+
+    btnId = btnId.substring(12);
+    players.forEach((player)=>{
+
+        if(player.playerName == btnId){
+
+            players.splice(players.indexOf(player), 1);
+
+        }
+
+    });
+
+    var deletedCard = document.getElementById("card" + btnId);
+    cardsSection.removeChild(deletedCard);
+
+}
+
 function chooseRaffle(){
 
     buttonsSection.removeChild(startRaffleButton);
     addCardButton.disabled = true;
+    var delButtons = document.querySelectorAll(".deleteButton");
+    delButtons.forEach((delB)=>{
+        delB.remove();
+    });
 
     var manualRaffleButton = document.createElement("button");
     manualRaffleButton.id = "manualRaffleButton";
