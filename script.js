@@ -4,12 +4,12 @@ const inputDiv = document.getElementById("inputDiv");
 const addCardButton = document.getElementById("addCardButton");
 const startRaffleButton = document.getElementById("startRaffleButton");
 
-var players = [];
-var generatedNumbers = [];
-var raffleNumbers = [];
-var raffleInterval;
-var winnerNames = [];
-var isWinner;
+let players = [];
+let generatedNumbers = [];
+let raffleNumbers = [];
+let raffleInterval;
+let winnerNames = [];
+let isWinner;
 
 startRaffleButton.disabled = true;
 
@@ -28,9 +28,9 @@ function createPlayer(){
     inputDiv.classList.add("hidden");
     inputDiv.classList.remove("flexColumn");
 
-    var playerName = document.getElementById("nameInput").value;
+    let playerName = document.getElementById("nameInput").value;
 
-    var isNameUnique = true;
+    let isNameUnique = true;
     players.forEach((player)=>{
 
         if(player.playerName == playerName){
@@ -41,7 +41,7 @@ function createPlayer(){
 
     });
 
-    var card = [];
+    let card = [];
 
     if(isNameUnique && playerName != ""){
 
@@ -72,7 +72,7 @@ function createPlayer(){
 
 function createErrorMessage(errorSwitch){
 
-    var errorText = "";
+    let errorText = "";
 
     switch(errorSwitch)
     {
@@ -88,11 +88,11 @@ function createErrorMessage(errorSwitch){
 
 function displayErrorMessage(errorText){
 
-    var errorP = document.createElement("p");
+    let errorP = document.createElement("p");
     errorP.id = "errorP";
     errorP.innerHTML = errorText;
 
-    var errorDiv = document.createElement("div");
+    let errorDiv = document.createElement("div");
     errorDiv.id = "errorDiv";
     errorDiv.appendChild(errorP);
 
@@ -108,28 +108,28 @@ function displayErrorMessage(errorText){
 
 function createCard(name, pLength){
 
-    var card = document.createElement("div");
+    let card = document.createElement("div");
     card.id = "card" + name;
     card.classList.add("cards");
 
-    var playerNameTag = document.createElement("h2");
+    let playerNameTag = document.createElement("h2");
     playerNameTag.id = "playerNameTag" + name;
     playerNameTag.classList.add("playerNameTags");
     playerNameTag.innerHTML = name;
     card.appendChild(playerNameTag);
 
-    var cardArray = createCardArray();
+    let cardArray = createCardArray();
     console.log(cardArray);
 
     card.appendChild(drawCard(cardArray, name));
     cardsSection.appendChild(card);
 
-    var deleteIcon = document.createElement("img");
+    let deleteIcon = document.createElement("img");
     deleteIcon.id = "deleteIcon" + name;
     deleteIcon.classList.add("deleteIcon");
     deleteIcon.src = "deleteIcon.webp";
 
-    var deleteButton = document.createElement("button");
+    let deleteButton = document.createElement("button");
     deleteButton.id = "deleteButton" + name;
     deleteButton.classList.add("deleteButton");
     deleteButton.onclick = function() {deleteCard(deleteButton.id)};
@@ -142,11 +142,11 @@ function createCard(name, pLength){
 
 function createCardArray(){
 
-    var cardArray = [];
+    let cardArray = [];
 
     for(i=0; i<5; i++){
 
-        var row = [];
+        let row = [];
 
         for(j=0; j<5; j++){
 
@@ -171,7 +171,7 @@ function createCardArray(){
 
 function getRandomNumber(interval){
 
-    var randomNumber;
+    let randomNumber;
 
     switch(interval)
     {
@@ -197,7 +197,7 @@ function getRandomNumber(interval){
 
 function generateRandomNumber(min, max, numArray){
 
-    var randomNumber, isRepeatedNumber;
+    let randomNumber, isRepeatedNumber;
 
     do{
 
@@ -221,17 +221,17 @@ function generateRandomNumber(min, max, numArray){
 
 function drawCard(cardArray, name){
 
-    var table = document.createElement("table");
+    let table = document.createElement("table");
     table.id = "table" + name;
     table.classList.add("cardTable");
 
     for(i = 0; i < 5; i++){
 
-        var tr = document.createElement("tr");
+        let tr = document.createElement("tr");
 
         for(j = 0; j < 5; j++){
 
-            var td = document.createElement("td");
+            let td = document.createElement("td");
             td.id = "td" + name + i + j;
 
             if(i == 2 && j == 2){
@@ -269,7 +269,7 @@ function deleteCard(btnId){
 
     });
 
-    var deletedCard = document.getElementById("card" + btnId);
+    let deletedCard = document.getElementById("card" + btnId);
     cardsSection.removeChild(deletedCard);
 
 }
@@ -278,24 +278,24 @@ function chooseRaffle(){
 
     buttonsSection.removeChild(startRaffleButton);
     addCardButton.disabled = true;
-    var delButtons = document.querySelectorAll(".deleteButton");
+    let delButtons = document.querySelectorAll(".deleteButton");
     delButtons.forEach((delB)=>{
         delB.remove();
     });
 
-    var manualRaffleButton = document.createElement("button");
+    let manualRaffleButton = document.createElement("button");
     manualRaffleButton.id = "manualRaffleButton";
     manualRaffleButton.innerHTML = "Sorteio manual";
     manualRaffleButton.classList.add("mainButton");
     manualRaffleButton.onclick = function() {prepareManualRaffle()};
 
-    var autoRaffleButton = document.createElement("button");
+    let autoRaffleButton = document.createElement("button");
     autoRaffleButton.id = "autoRaffleButton";
     autoRaffleButton.innerHTML = "Sorteio automático";
     autoRaffleButton.classList.add("mainButton");
     autoRaffleButton.onclick = function() {startAutoRaffle()};
 
-    var raffleOptionSpan = document.createElement("span");
+    let raffleOptionSpan = document.createElement("span");
     raffleOptionSpan.id = "raffleOptionsSpan";
     raffleOptionSpan.appendChild(manualRaffleButton);
     raffleOptionSpan.appendChild(autoRaffleButton);
@@ -308,7 +308,7 @@ function prepareManualRaffle(){
 
     prepareRaffleArea();
 
-    var manualRaffleButton = document.createElement("button");
+    let manualRaffleButton = document.createElement("button");
     manualRaffleButton.id = "manualRaffleButton";
     manualRaffleButton.classList.add("manualRaffleButton");
     manualRaffleButton.innerHTML = "Clique para sortear";
@@ -322,7 +322,7 @@ function pickManualNumber(){
     
     if(raffleNumbers.length < 73 && !isWinner){
         
-        var raffleNumber = generateRandomNumber(1, 75, raffleNumbers);
+        let raffleNumber = generateRandomNumber(1, 75, raffleNumbers);
         drawRaffleNumber(raffleNumber);
         checkCards(raffleNumber);
         checkForWinner();
@@ -352,7 +352,7 @@ function startAutoRaffle(){
 
         } else {
 
-            var raffleNumber = generateRandomNumber(1, 75, raffleNumbers);
+            let raffleNumber = generateRandomNumber(1, 75, raffleNumbers);
             drawRaffleNumber(raffleNumber);
             checkCards(raffleNumber);
             checkForWinner();
@@ -372,12 +372,12 @@ function prepareRaffleArea(){
 
 function drawRaffleNumber(raffleNumber){
 
-    var numP = document.createElement("p");
+    let numP = document.createElement("p");
     numP.id = "raffleNumberP" + raffleNumbers.length;
     numP.classList.add("raffleNumberP");
     numP.innerHTML = raffleNumber;
 
-    var numDiv = document.createElement("div");
+    let numDiv = document.createElement("div");
     numDiv.id = "raffleNumberDiv" + raffleNumbers.length;
     numDiv.classList.add("raffleNumberDiv");
     numDiv.appendChild(numP);
@@ -397,7 +397,7 @@ function checkCards(raffleNumber){
                 if(player.card[i][j] == raffleNumber && !(i == 2 && j == 2)){
 
                     player.card[i][j] = 0;
-                    var td = document.getElementById("td" + player.playerName + j + i);
+                    let td = document.getElementById("td" + player.playerName + j + i);
                     td.style.backgroundColor = "lightblue";
                     
                 }
@@ -445,7 +445,7 @@ function checkForWinner(){
 function endGame(){
 
     buttonsSection.innerHTML = "";
-    var winnerText;  
+    let winnerText;  
 
     if(winnerNames.length == 1) {
 
@@ -478,16 +478,16 @@ function endGame(){
         
     }
     
-    var winnerP = document.createElement("p");
+    let winnerP = document.createElement("p");
     winnerP.id = "winnerP";
     winnerP.innerHTML = winnerText;
 
-    var restartButton = document.createElement("button");
+    let restartButton = document.createElement("button");
     restartButton.id = "restartButton";
     restartButton.onclick = function() {restartGame()};
     restartButton.innerHTML = "Jogar Novamente";
 
-    var winnerDiv = document.createElement("div");
+    let winnerDiv = document.createElement("div");
     winnerDiv.id = "winnerDiv";
     winnerDiv.appendChild(winnerP);
     winnerDiv.appendChild(restartButton);
