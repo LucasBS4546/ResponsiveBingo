@@ -20,7 +20,8 @@ O JavaScript foi feito de forma a poder rodar diversos ciclos de jogo, alterando
  * **style.css** - O arquivo que contem a estilização do cabeçalho e rodapé (header e footer).
  * **main.css** - O arquivo que contem a estilização da parte principal do corpo da página (main).
  * **script.js** - O arquivo que contem a programação feita em JavaScript.
- * **headericon.png** - O arquivo de imagem usado no cabeçalho da página.
+ * **headerIcon.png** - O arquivo de imagem usado no cabeçalho da página.
+ * **deleteIcon.webp** - O arquivo de imagem usado nas cartelas do bingo
 
 <details>
   <summary>
