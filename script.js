@@ -4,25 +4,35 @@ const inputDiv = document.getElementById("inputDiv");
 const addCardButton = document.getElementById("addCardButton");
 const startRaffleButton = document.getElementById("startRaffleButton");
 
-let players = [];
+const players = [];
 let generatedNumbers = [];
-let raffleNumbers = [];
+
+const raffleNumbers = [];
 let raffleInterval;
-let winnerNames = [];
-let isWinner;
+
+const winnerNames = [];
+let isWinner = false;
 
 startRaffleButton.disabled = true;
 
 
-function askName(){
+function askName() {
 
     addCardButton.classList.add("hidden");
     inputDiv.classList.add("flexColumn");
     inputDiv.classList.remove("hidden");
 
+    nameInput = document.getElementById("nameInput");
+    nameInput.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.key === "Enter" && nameInput.value != "") {
+            document.getElementById("nameInputSubmit").click();
+        }
+    })
+
 }
 
-function createPlayer(){
+function createPlayer() {
 
     addCardButton.classList.remove("hidden");
     inputDiv.classList.add("hidden");
@@ -31,9 +41,9 @@ function createPlayer(){
     let playerName = document.getElementById("nameInput").value;
 
     let isNameUnique = true;
-    players.forEach((player)=>{
+    players.forEach((player) => {
 
-        if(player.playerName == playerName){
+        if(player.playerName == playerName) {
 
             isNameUnique = false;
 
@@ -43,7 +53,7 @@ function createPlayer(){
 
     let card = [];
 
-    if(isNameUnique && playerName != ""){
+    if(isNameUnique && playerName != "") {
 
         players.push({
 
@@ -58,7 +68,7 @@ function createPlayer(){
 
     } else {
 
-        if(!isNameUnique){
+        if(!isNameUnique) {
             createErrorMessage(1);
         } else {
             createErrorMessage(0);
@@ -70,7 +80,7 @@ function createPlayer(){
 
 }
 
-function createErrorMessage(errorSwitch){
+function createErrorMessage(errorSwitch) {
 
     let errorText = "";
 
@@ -86,7 +96,7 @@ function createErrorMessage(errorSwitch){
 
 }
 
-function displayErrorMessage(errorText){
+function displayErrorMessage(errorText) {
 
     let errorP = document.createElement("p");
     errorP.id = "errorP";
@@ -98,7 +108,7 @@ function displayErrorMessage(errorText){
 
     buttonsSection.appendChild(errorDiv);
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
         buttonsSection.removeChild(errorDiv);
 
@@ -106,7 +116,7 @@ function displayErrorMessage(errorText){
 
 }
 
-function createCard(name, pLength){
+function createCard(name, pLength) {
 
     let card = document.createElement("div");
     card.id = "card" + name;
@@ -140,17 +150,17 @@ function createCard(name, pLength){
 
 }
 
-function createCardArray(){
+function createCardArray() {
 
     let cardArray = [];
 
-    for(i=0; i<5; i++){
+    for(let i = 0; i < 5; i++) {
 
         let row = [];
 
-        for(j=0; j<5; j++){
+        for(let j = 0; j < 5; j++) {
 
-            if(i == 2 && j == 2){
+            if(i == 2 && j == 2) {
 
                 row[j] = 0;
 
@@ -169,7 +179,7 @@ function createCardArray(){
 
 }
 
-function getRandomNumber(interval){
+function getRandomNumber(interval) {
 
     let randomNumber;
 
@@ -195,7 +205,7 @@ function getRandomNumber(interval){
 
 }
 
-function generateRandomNumber(min, max, numArray){
+function generateRandomNumber(min, max, numArray) {
 
     let randomNumber, isRepeatedNumber;
 
@@ -204,9 +214,9 @@ function generateRandomNumber(min, max, numArray){
         isRepeatedNumber = false;
         randomNumber = Math.ceil(Math.random() * (max-min)) + min;
 
-        numArray.forEach((n)=>{
+        numArray.forEach((n) => {
 
-            if(randomNumber == n){
+            if(randomNumber == n) {
                 isRepeatedNumber = true;
             }
 
@@ -219,22 +229,22 @@ function generateRandomNumber(min, max, numArray){
 
 }
 
-function drawCard(cardArray, name){
+function drawCard(cardArray, name) {
 
     let table = document.createElement("table");
     table.id = "table" + name;
     table.classList.add("cardTable");
 
-    for(i = 0; i < 5; i++){
+    for(let i = 0; i < 5; i++) {
 
         let tr = document.createElement("tr");
 
-        for(j = 0; j < 5; j++){
+        for(let j = 0; j < 5; j++) {
 
             let td = document.createElement("td");
             td.id = "td" + name + i + j;
 
-            if(i == 2 && j == 2){
+            if(i == 2 && j == 2) {
 
                 td.innerHTML = "X";
                 
@@ -256,12 +266,12 @@ function drawCard(cardArray, name){
 
 }
 
-function deleteCard(btnId){
+function deleteCard(btnId) {
 
     btnId = btnId.substring(12);
-    players.forEach((player)=>{
+    players.forEach((player) => {
 
-        if(player.playerName == btnId){
+        if(player.playerName == btnId) {
 
             players.splice(players.indexOf(player), 1);
 
@@ -272,14 +282,20 @@ function deleteCard(btnId){
     let deletedCard = document.getElementById("card" + btnId);
     cardsSection.removeChild(deletedCard);
 
+    if(players.length == 0) {
+
+        startRaffleButton.disabled = true;
+
+    }
+
 }
 
-function chooseRaffle(){
+function chooseRaffle() {
 
     buttonsSection.removeChild(startRaffleButton);
     addCardButton.disabled = true;
     let delButtons = document.querySelectorAll(".deleteButton");
-    delButtons.forEach((delB)=>{
+    delButtons.forEach((delB) => {
         delB.remove();
     });
 
@@ -304,7 +320,7 @@ function chooseRaffle(){
 
 }
 
-function prepareManualRaffle(){
+function prepareManualRaffle() {
 
     prepareRaffleArea();
 
@@ -318,9 +334,9 @@ function prepareManualRaffle(){
     
 }
 
-function pickManualNumber(){
+function pickManualNumber() {
     
-    if(raffleNumbers.length < 73 && !isWinner){
+    if(raffleNumbers.length < 73 && !isWinner) {
         
         let raffleNumber = generateRandomNumber(1, 75, raffleNumbers);
         drawRaffleNumber(raffleNumber);
@@ -328,7 +344,7 @@ function pickManualNumber(){
         checkForWinner();
 
         document.getElementById("manualRaffleButton").disabled = true;
-        setTimeout(()=>{
+        setTimeout(() => {
 
             document.getElementById("manualRaffleButton").disabled = false;
 
@@ -338,15 +354,13 @@ function pickManualNumber(){
 
 }
 
-function startAutoRaffle(){
+function startAutoRaffle() {
 
     prepareRaffleArea();
 
-    raffleInterval = setInterval(()=>{
+    raffleInterval = setInterval(() => {
 
-        //            colocar 74 aqui quebra o código - não sei o porquê disso...
-        //                        V
-        if(raffleNumbers.length > 73){
+        if(raffleNumbers.length > 73) {
 
             clearInterval(raffleInterval);
 
@@ -363,14 +377,14 @@ function startAutoRaffle(){
 
 }
 
-function prepareRaffleArea(){
+function prepareRaffleArea() {
 
     buttonsSection.innerHTML = "";
     buttonsSection.classList.replace("buttonsSection", "buttonSectionChanged");
 
 }
 
-function drawRaffleNumber(raffleNumber){
+function drawRaffleNumber(raffleNumber) {
 
     let numP = document.createElement("p");
     numP.id = "raffleNumberP" + raffleNumbers.length;
@@ -386,15 +400,15 @@ function drawRaffleNumber(raffleNumber){
 
 }
 
-function checkCards(raffleNumber){
+function checkCards(raffleNumber) {
 
-    players.forEach((player)=>{
+    players.forEach((player) => {
 
-        for(i = 0; i < 5; i++){
+        for(let i = 0; i < 5; i++) {
 
-            for(j = 0; j < 5; j++){
+            for(let j = 0; j < 5; j++) {
 
-                if(player.card[i][j] == raffleNumber && !(i == 2 && j == 2)){
+                if(player.card[i][j] == raffleNumber && !(i == 2 && j == 2)) {
 
                     player.card[i][j] = 0;
                     let td = document.getElementById("td" + player.playerName + j + i);
@@ -410,17 +424,17 @@ function checkCards(raffleNumber){
 
 }
 
-function checkForWinner(){
+function checkForWinner() {
 
-    players.forEach((player)=>{
+    players.forEach((player) => {
 
         isWinner = true;
         
-        for(i = 0; i < 5; i++){
+        for(let i = 0; i < 5; i++) {
 
-            for(j = 0; j < 5; j++){
+            for(let j = 0; j < 5; j++) {
 
-                if(player.card[i][j] != 0){
+                if(player.card[i][j] != 0) {
 
                     isWinner = false;
 
@@ -430,7 +444,7 @@ function checkForWinner(){
 
         }
 
-        if(isWinner){
+        if(isWinner) {
 
             winnerNames.push(player.playerName);
             clearInterval(raffleInterval);
@@ -442,7 +456,7 @@ function checkForWinner(){
 
 }
 
-function endGame(){
+function endGame() {
 
     buttonsSection.innerHTML = "";
     let winnerText;  
@@ -451,10 +465,10 @@ function endGame(){
 
         winnerText = winnerNames[0] + " venceu o jogo!";
 
-    } else if(winnerNames.length > 1){
+    } else if(winnerNames.length > 1) {
         
         winnerText = "";
-        winnerNames.forEach((name)=>{
+        winnerNames.forEach((name)=> {
             
             winnerText += name;
 
