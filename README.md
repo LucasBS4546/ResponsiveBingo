@@ -1,44 +1,40 @@
-# BingoResponsivo
-Bingo Responsivo é um projeto pessoal voltado ao meu aprendizado em JavaScript e CSS responsivo.
+# ResponsiveBingo
+ResponsiveBingo is a personal project I made to get a better grip on JavaScript and responsive CSS.
 
-Busco aqui criar uma aplicação web de um bingo que funcione em qualquer dispositivo.
+Here I aim to create a <i>bingo</i> web aplication that works on any device.
 
-O bingo foi desenvolvido pela perspectiva do Mobile-First, tendo sua versão desktop adaptada posteriormente.
-
-Seu CSS possui essa distinção por meio de uma palavra-chave *@media*, que separa a estilização usada em dispositivos desktop e dispositivos mobile.
-
-O JavaScript foi feito de forma a poder rodar diversos ciclos de jogo, alterando constantemente o documento HTML em suas funções.
+The website was developed and designed with the mobile-first perspective, having its desktop version adapted afterwards.
 
 <hr>
 
-## [ACESSAR O BINGO](https://lucasbs4546.github.io/BingoResponsivo/)
+## [ACCESS THE BINGO!](https://lucasbs4546.github.io/BingoResponsivo/)
 
 <hr>
 
-## Guia do repositório
- * **index.html** - O arquivo que contem a estrutura da página em linguagem de marcação (HTML 5).
- * **style.css** - O arquivo que contem a estilização do cabeçalho e rodapé (header e footer).
- * **main.css** - O arquivo que contem a estilização da parte principal do corpo da página (main).
- * **script.js** - O arquivo que contem a programação feita em JavaScript.
- * **headerIcon.png** - O arquivo de imagem usado no cabeçalho da página.
- * **deleteIcon.webp** - O arquivo de imagem usado nas cartelas do bingo
+## Repository guide
+ * **index.html** - File containing the structure of the website in HTML5.
+ * **style.css** - File containing the styling of the header and footer of the website.
+ * **main.css** - File containing the styling of the main part of the website.
+ * **script.js** - File containing the code written in JavaScript.
+ * **headerIcon.png** - Image file used in the header of the website.
+ * **deleteIcon.webp** - Image file used in bingo cards of the website.
 
 <details>
   <summary>
-    <h2>Funcionalidades</h2>
+    <h2>Functionality</h2>
   </summary>
   
-  Início do jogo:
-   * Criação de cartelas - O usuário pode inserir o nome de um jogador do bingo e sua cartela respectiva será criada. O usuário pode criar quantas cartelas quiser.
-   * Apagar cartelas - O usuário pode também apagar as cartelas que ele queira.
+  Start of game:
+   * Create card - The user can input the name of a player and their respective bingo card will be created. The user can create as many players as they want, as long as there are no repeated names.
+   * Delete card - The user can also delete an existing bingo card/player if they want to.
+
+  The user can now choose between a <i>manual raffle</i> and an <i>automatic raffle</i>:
+   * Manual raffle - The user presses a button in order to draw a number.
+   * Automatic raffle: The program will keep drawing a number every few seconds automatically.
   
-  O usuário pode então escolher se deseja realizar um sorteio manual ou automático:
-   * Sorteio manual - O usuário aperta um botão para sortear um número.
-   * Sorteio automático: O programa sorteia números automaticamente dentro de um intervalo fixo.
-  
-  Finalização do jogo:
-   * Assim que qualquer cartela seja completamente preenchida, o jogador respectivo daquela cartela será o vencedor.
-     * Caso mais de um jogador faça bingo ao mesmo tempo, todos os jogadores vencedores serão considerados vencedores.
-   * O programa anunciará o vencedor / os vencedores.
-   * O jogador pode apertar um botão para jogar novamente 
+  Game over:
+   * Whenever a bingo card is completely filled, the corresponding player of that card will win.
+     * There might be multiple winners.
+   * The program will declare the winners.
+   * The user can press a button to play again. 
 </details>
