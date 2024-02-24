@@ -7,7 +7,7 @@ The website was developed and designed with the mobile-first perspective, having
 
 <hr>
 
-## [ACCESS THE BINGO!](https://lucasbs4546.github.io/BingoResponsivo/)
+## [ACCESS THE BINGO!](https://lucasbs4546.github.io/ResponsiveBingo/)
 
 <hr>
 
